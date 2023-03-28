@@ -35,11 +35,17 @@ const App = () => {
     if (vowelsArray.includes(eachWord[0])){
       return `${eachWord}way`
     }
-    if (eachWord[0] === "q" || eachWord[0] === "Q"){
+    else if (eachWord[0] === "q" || eachWord[0] === "Q"){
       return `${eachWord.substring(2)}quay`
-
     }
-      // ACTION ITEM: this return will be the output of your Pig Latin'd code
+    
+    else if (!vowelsArray.includes(eachWord)){const yIndex = eachWord.indexOf("y")
+    
+    return `${eachWord.substring(yIndex)}${eachWord.slice(0,yIndex)}ay`
+    }
+    
+   
+    // ACTION ITEM: this return will be the output of your Pig Latin'd code
       return eachWord
     })
 

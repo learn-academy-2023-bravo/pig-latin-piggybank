@@ -33,9 +33,31 @@ const App = () => {
 
       // ACTION ITEM: your Pig Latin logic goes here!
 
-    
+    //First letter vowel logic
+    if (vowelsArray.includes(eachWord[0])){
+       return `${eachWord}way`
+    } 
 
-      // ACTION ITEM: this return will be the output of your Pig Latin'd code
+    // Y logic
+    if ((eachWord.includes('y') || eachWord.includes('Y')) && (eachWord[0] !== 'y' || eachWord[0] !== 'Y') && !vowelsArray.length){
+      console.log('hi')
+      const yIndex = eachWord.indexOf("y")
+      return `${eachWord.substring(yIndex)}${eachWord.slice(0,yIndex)}ay`
+    } 
+
+    //QU logic
+    const vowelIndex = eachWord.indexOf(vowelsArray[0])
+    if((vowelsArray[0]==='u' && (eachWord[vowelIndex-1] === 'q' || eachWord[vowelIndex-1] === 'Q'))){
+      const uIndex = eachWord.indexOf('u')
+      return `${eachWord.substring(uIndex+1)}${eachWord.slice(0, uIndex+1)}ay`
+      }
+      
+      //All other words
+      else if(vowelsArray.length>0){
+        return `${eachWord.substring(vowelIndex)}${eachWord.slice(0, vowelIndex)}ay`
+    }
+   
+    // ACTION ITEM: this return will be the output of your Pig Latin'd code
       return eachWord
     })
 
@@ -88,7 +110,7 @@ const App = () => {
         </div>
         <p>{inputTranslated}</p>
       </div>
-      <footer>&copy; 2022 | Coded by: Your Names Here!</footer>
+      <footer>&copy; 2023 | Coded by: DeMario W. Wagner G. Elmer F.!</footer>
     </div>
   )
 }
